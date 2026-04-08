@@ -369,9 +369,17 @@
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .about-image-wrap { position: relative; }
     .about-image-main {
-      aspect-ratio: 4/5; border-radius: var(--radius);
-      background: linear-gradient(145deg, var(--yellow), #c8e6e3);
-      overflow: hidden; position: relative;
+    width: 100%;
+    height: 400px; /* 或者你原本設定的高度 */
+    border-radius: 20px; /* 保持跟原本風格一致的圓角 */
+    overflow: hidden; /* 確保圖片超出圓角的部分會被裁掉 */
+    background: #f9f8f6; /* 圖片加載前的底色 */
+    }
+    .about-img-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 這行最重要：它會像手機桌布一樣填滿框框，且不壓扁圖片 */
+    display: block;
     }
     .about-image-placeholder {
       position: absolute; inset: 0;
@@ -682,14 +690,10 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image-wrap fade-up">
-          <div class="about-image-main">
-            <div class="about-image-placeholder">
-              <svg width="48" height="48" viewBox="0 0 34 34" fill="none">
-                <rect width="34" height="34" rx="7" fill="rgba(126,200,188,0.4)"/>
-                <path d="M7 17 Q11 8 17 12 Q23 16 27 9 Q25 23 17 26 Q9 29 7 17Z" fill="rgba(255,255,255,0.7)"/>
-              </svg>
-              <p>Salon photo here</p>
-            </div>
+        <div class="about-image-main">
+        <img src="shoplogo.jpg" alt="Koiskin Lab Salon" class="about-img-file">
+        </div>
+    </div>
           </div>
           <div class="about-frame"></div>
           <div class="about-badge">
